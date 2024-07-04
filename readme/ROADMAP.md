@@ -7,6 +7,7 @@
   * [X] Navigation
   * [ ] Add protocols  
   * [ ] Auth
+
 ### Editor
   * [X] Select elements
     * [ ] Multi-select
@@ -22,18 +23,23 @@
     * [ ] Insert
     * [ ] Delete
     * [ ] Move
+
 ### Variables
   * [ ] Read style from variables
   * [ ] Get variables from stylesheet
+
 ### Code
   * [X] Read code block
   * [X] Translate to code
   * [X] Write to file
+
 ### Collaboration
   * [ ] Teams
   * [ ] Liveblocks
+
 ### Components
   * [ ] Show avaiable elements
+
 ### Project
   * [ ] Local persistence
   * [ ] Cloud sync
