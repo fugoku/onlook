@@ -1,25 +1,8 @@
-import { EditorAttributes } from './constants';
-import { TemplateNode } from './models';
-import { finder } from './selector';
+import { EditorAttributes } from '../constants';
+import { finder } from '../selector';
 
 export function querySelectorCommand(selector: string) {
     return `document.querySelector('${CSS.escape(selector)}')`;
-}
-
-export function compareTemplateNodes(node1: TemplateNode, node2: TemplateNode): number {
-    if (node1.startTag.start.line < node2.startTag.start.line) {
-        return -1;
-    } else if (node1.startTag.start.line > node2.startTag.start.line) {
-        return 1;
-    } else {
-        if (node1.startTag.start.column < node2.startTag.start.column) {
-            return -1;
-        } else if (node1.startTag.start.column > node2.startTag.start.column) {
-            return 1;
-        } else {
-            return 0;
-        }
-    }
 }
 
 export const getUniqueSelector = (el: HTMLElement, root?: Element | undefined): string => {
@@ -45,3 +28,7 @@ export const getUniqueSelector = (el: HTMLElement, root?: Element | undefined): 
     }
     return selector;
 };
+
+export function capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
