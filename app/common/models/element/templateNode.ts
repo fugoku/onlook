@@ -1,9 +1,8 @@
 export interface TemplateNode {
     path: string;
     startTag: TemplateTag;
-    endTag: TemplateTag;
-    commit: string;
-    name?: string;
+    endTag?: TemplateTag;
+    component?: string;
 }
 
 export interface TemplateTag {
