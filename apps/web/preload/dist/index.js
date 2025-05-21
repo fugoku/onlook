@@ -2,6 +2,7 @@ var __create = Object.create;
 var __getProtoOf = Object.getPrototypeOf;
 var __defProp = Object.defineProperty;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __toESM = (mod, isNodeMode, target) => {
   target = mod != null ? __create(__getProtoOf(mod)) : {};
@@ -14,6 +15,20 @@ var __toESM = (mod, isNodeMode, target) => {
       });
   return to;
 };
+var __moduleCache = /* @__PURE__ */ new WeakMap;
+var __toCommonJS = (from) => {
+  var entry = __moduleCache.get(from), desc;
+  if (entry)
+    return entry;
+  entry = __defProp({}, "__esModule", { value: true });
+  if (from && typeof from === "object" || typeof from === "function")
+    __getOwnPropNames(from).map((key) => !__hasOwnProp.call(entry, key) && __defProp(entry, key, {
+      get: () => from[key],
+      enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
+    }));
+  __moduleCache.set(from, entry);
+  return entry;
+};
 var __commonJS = (cb, mod) => () => (mod || cb((mod = { exports: {} }).exports, mod), mod.exports);
 var __export = (target, all) => {
   for (var name in all)
@@ -24,6 +39,7 @@ var __export = (target, all) => {
       set: (newValue) => all[name] = () => newValue
     });
 };
+var __esm = (fn, res) => () => (fn && (res = fn(fn = 0)), res);
 
 // ../../../node_modules/lodash/isObject.js
 var require_isObject = __commonJS((exports, module) => {
@@ -143474,6 +143490,231 @@ Using plugins:`);
   });
 });
 
+// node:path
+var exports_path = {};
+__export(exports_path, {
+  win32: () => y,
+  toNamespacedPath: () => U,
+  sep: () => I,
+  resolve: () => B,
+  relative: () => Q,
+  posix: () => g,
+  parse: () => $,
+  normalize: () => G,
+  join: () => K,
+  isAbsolute: () => H,
+  format: () => Z,
+  extname: () => Y,
+  dirname: () => V,
+  delimiter: () => O,
+  default: () => q,
+  basename: () => X
+});
+var L, h, D, T, _, E, R = (s, e) => () => (e || s((e = { exports: {} }).exports, e), e.exports), N = (s, e, r, t) => {
+  if (e && typeof e == "object" || typeof e == "function")
+    for (let i of T(e))
+      !E.call(s, i) && i !== r && h(s, i, { get: () => e[i], enumerable: !(t = D(e, i)) || t.enumerable });
+  return s;
+}, j = (s, e, r) => (r = s != null ? L(_(s)) : {}, N(e || !s || !s.__esModule ? h(r, "default", { value: s, enumerable: true }) : r, s)), k, x, u, J, P = function(s) {
+  return s;
+}, S = function() {
+  throw new Error("Not implemented");
+}, g, y, q, B, G, H, K, Q, U, V, X, Y, Z, $, I, O;
+var init_path = __esm(() => {
+  L = Object.create;
+  h = Object.defineProperty;
+  D = Object.getOwnPropertyDescriptor;
+  T = Object.getOwnPropertyNames;
+  _ = Object.getPrototypeOf;
+  E = Object.prototype.hasOwnProperty;
+  k = R((W, w) => {
+    function v(s) {
+      if (typeof s != "string")
+        throw new TypeError("Path must be a string. Received " + JSON.stringify(s));
+    }
+    function C(s, e) {
+      for (var r = "", t = 0, i = -1, a = 0, n, l = 0;l <= s.length; ++l) {
+        if (l < s.length)
+          n = s.charCodeAt(l);
+        else {
+          if (n === 47)
+            break;
+          n = 47;
+        }
+        if (n === 47) {
+          if (!(i === l - 1 || a === 1))
+            if (i !== l - 1 && a === 2) {
+              if (r.length < 2 || t !== 2 || r.charCodeAt(r.length - 1) !== 46 || r.charCodeAt(r.length - 2) !== 46) {
+                if (r.length > 2) {
+                  var f = r.lastIndexOf("/");
+                  if (f !== r.length - 1) {
+                    f === -1 ? (r = "", t = 0) : (r = r.slice(0, f), t = r.length - 1 - r.lastIndexOf("/")), i = l, a = 0;
+                    continue;
+                  }
+                } else if (r.length === 2 || r.length === 1) {
+                  r = "", t = 0, i = l, a = 0;
+                  continue;
+                }
+              }
+              e && (r.length > 0 ? r += "/.." : r = "..", t = 2);
+            } else
+              r.length > 0 ? r += "/" + s.slice(i + 1, l) : r = s.slice(i + 1, l), t = l - i - 1;
+          i = l, a = 0;
+        } else
+          n === 46 && a !== -1 ? ++a : a = -1;
+      }
+      return r;
+    }
+    function F(s, e) {
+      var r = e.dir || e.root, t = e.base || (e.name || "") + (e.ext || "");
+      return r ? r === e.root ? r + t : r + s + t : t;
+    }
+    var m = { resolve: function() {
+      for (var e = "", r = false, t, i = arguments.length - 1;i >= -1 && !r; i--) {
+        var a;
+        i >= 0 ? a = arguments[i] : (t === undefined && (t = process.cwd()), a = t), v(a), a.length !== 0 && (e = a + "/" + e, r = a.charCodeAt(0) === 47);
+      }
+      return e = C(e, !r), r ? e.length > 0 ? "/" + e : "/" : e.length > 0 ? e : ".";
+    }, normalize: function(e) {
+      if (v(e), e.length === 0)
+        return ".";
+      var r = e.charCodeAt(0) === 47, t = e.charCodeAt(e.length - 1) === 47;
+      return e = C(e, !r), e.length === 0 && !r && (e = "."), e.length > 0 && t && (e += "/"), r ? "/" + e : e;
+    }, isAbsolute: function(e) {
+      return v(e), e.length > 0 && e.charCodeAt(0) === 47;
+    }, join: function() {
+      if (arguments.length === 0)
+        return ".";
+      for (var e, r = 0;r < arguments.length; ++r) {
+        var t = arguments[r];
+        v(t), t.length > 0 && (e === undefined ? e = t : e += "/" + t);
+      }
+      return e === undefined ? "." : m.normalize(e);
+    }, relative: function(e, r) {
+      if (v(e), v(r), e === r || (e = m.resolve(e), r = m.resolve(r), e === r))
+        return "";
+      for (var t = 1;t < e.length && e.charCodeAt(t) === 47; ++t)
+        ;
+      for (var i = e.length, a = i - t, n = 1;n < r.length && r.charCodeAt(n) === 47; ++n)
+        ;
+      for (var l = r.length, f = l - n, c = a < f ? a : f, d = -1, o = 0;o <= c; ++o) {
+        if (o === c) {
+          if (f > c) {
+            if (r.charCodeAt(n + o) === 47)
+              return r.slice(n + o + 1);
+            if (o === 0)
+              return r.slice(n + o);
+          } else
+            a > c && (e.charCodeAt(t + o) === 47 ? d = o : o === 0 && (d = 0));
+          break;
+        }
+        var A = e.charCodeAt(t + o), z2 = r.charCodeAt(n + o);
+        if (A !== z2)
+          break;
+        A === 47 && (d = o);
+      }
+      var b = "";
+      for (o = t + d + 1;o <= i; ++o)
+        (o === i || e.charCodeAt(o) === 47) && (b.length === 0 ? b += ".." : b += "/..");
+      return b.length > 0 ? b + r.slice(n + d) : (n += d, r.charCodeAt(n) === 47 && ++n, r.slice(n));
+    }, _makeLong: function(e) {
+      return e;
+    }, dirname: function(e) {
+      if (v(e), e.length === 0)
+        return ".";
+      for (var r = e.charCodeAt(0), t = r === 47, i = -1, a = true, n = e.length - 1;n >= 1; --n)
+        if (r = e.charCodeAt(n), r === 47) {
+          if (!a) {
+            i = n;
+            break;
+          }
+        } else
+          a = false;
+      return i === -1 ? t ? "/" : "." : t && i === 1 ? "//" : e.slice(0, i);
+    }, basename: function(e, r) {
+      if (r !== undefined && typeof r != "string")
+        throw new TypeError('"ext" argument must be a string');
+      v(e);
+      var t = 0, i = -1, a = true, n;
+      if (r !== undefined && r.length > 0 && r.length <= e.length) {
+        if (r.length === e.length && r === e)
+          return "";
+        var l = r.length - 1, f = -1;
+        for (n = e.length - 1;n >= 0; --n) {
+          var c = e.charCodeAt(n);
+          if (c === 47) {
+            if (!a) {
+              t = n + 1;
+              break;
+            }
+          } else
+            f === -1 && (a = false, f = n + 1), l >= 0 && (c === r.charCodeAt(l) ? --l === -1 && (i = n) : (l = -1, i = f));
+        }
+        return t === i ? i = f : i === -1 && (i = e.length), e.slice(t, i);
+      } else {
+        for (n = e.length - 1;n >= 0; --n)
+          if (e.charCodeAt(n) === 47) {
+            if (!a) {
+              t = n + 1;
+              break;
+            }
+          } else
+            i === -1 && (a = false, i = n + 1);
+        return i === -1 ? "" : e.slice(t, i);
+      }
+    }, extname: function(e) {
+      v(e);
+      for (var r = -1, t = 0, i = -1, a = true, n = 0, l = e.length - 1;l >= 0; --l) {
+        var f = e.charCodeAt(l);
+        if (f === 47) {
+          if (!a) {
+            t = l + 1;
+            break;
+          }
+          continue;
+        }
+        i === -1 && (a = false, i = l + 1), f === 46 ? r === -1 ? r = l : n !== 1 && (n = 1) : r !== -1 && (n = -1);
+      }
+      return r === -1 || i === -1 || n === 0 || n === 1 && r === i - 1 && r === t + 1 ? "" : e.slice(r, i);
+    }, format: function(e) {
+      if (e === null || typeof e != "object")
+        throw new TypeError('The "pathObject" argument must be of type Object. Received type ' + typeof e);
+      return F("/", e);
+    }, parse: function(e) {
+      v(e);
+      var r = { root: "", dir: "", base: "", ext: "", name: "" };
+      if (e.length === 0)
+        return r;
+      var t = e.charCodeAt(0), i = t === 47, a;
+      i ? (r.root = "/", a = 1) : a = 0;
+      for (var n = -1, l = 0, f = -1, c = true, d = e.length - 1, o = 0;d >= a; --d) {
+        if (t = e.charCodeAt(d), t === 47) {
+          if (!c) {
+            l = d + 1;
+            break;
+          }
+          continue;
+        }
+        f === -1 && (c = false, f = d + 1), t === 46 ? n === -1 ? n = d : o !== 1 && (o = 1) : n !== -1 && (o = -1);
+      }
+      return n === -1 || f === -1 || o === 0 || o === 1 && n === f - 1 && n === l + 1 ? f !== -1 && (l === 0 && i ? r.base = r.name = e.slice(1, f) : r.base = r.name = e.slice(l, f)) : (l === 0 && i ? (r.name = e.slice(1, n), r.base = e.slice(1, f)) : (r.name = e.slice(l, n), r.base = e.slice(l, f)), r.ext = e.slice(n, f)), l > 0 ? r.dir = e.slice(0, l - 1) : i && (r.dir = "/"), r;
+    }, sep: "/", delimiter: ":", win32: null, posix: null };
+    m.posix = m;
+    w.exports = m;
+  });
+  x = j(k());
+  u = x;
+  J = x;
+  u.parse ??= S;
+  J.parse ??= S;
+  g = { resolve: u.resolve.bind(u), normalize: u.normalize.bind(u), isAbsolute: u.isAbsolute.bind(u), join: u.join.bind(u), relative: u.relative.bind(u), toNamespacedPath: P, dirname: u.dirname.bind(u), basename: u.basename.bind(u), extname: u.extname.bind(u), format: u.format.bind(u), parse: u.parse.bind(u), sep: "/", delimiter: ":", win32: undefined, posix: undefined, _makeLong: P };
+  y = { sep: "\\", delimiter: ";", win32: undefined, ...g, posix: g };
+  g.win32 = y.win32 = y;
+  g.posix = g;
+  q = g;
+  ({ resolve: B, normalize: G, isAbsolute: H, join: K, relative: Q, toNamespacedPath: U, dirname: V, basename: X, extname: Y, format: Z, parse: $, sep: I, delimiter: O } = g);
+});
+
 // ../../../node_modules/lodash/lodash.js
 var require_lodash = __commonJS((exports, module) => {
   (function() {
@@ -148890,6 +149131,76 @@ __p += '`;
   }).call(exports);
 });
 
+// ../../../node_modules/is-windows/index.js
+var require_is_windows = __commonJS((exports, module) => {
+  /*!
+   * is-windows <https://github.com/jonschlinkert/is-windows>
+   *
+   * Copyright © 2015-2018, Jon Schlinkert.
+   * Released under the MIT License.
+   */
+  (function(factory) {
+    if (exports && typeof exports === "object" && typeof module !== "undefined") {
+      module.exports = factory();
+    } else if (typeof define === "function" && define.amd) {
+      define([], factory);
+    } else if (typeof window !== "undefined") {
+      window.isWindows = factory();
+    } else if (typeof global !== "undefined") {
+      global.isWindows = factory();
+    } else if (typeof self !== "undefined") {
+      self.isWindows = factory();
+    } else {
+      this.isWindows = factory();
+    }
+  })(function() {
+    return function isWindows() {
+      return process && (process.platform === "win32" || /^(msys|cygwin)$/.test(process.env.OSTYPE));
+    };
+  });
+});
+
+// ../../../node_modules/better-path-resolve/index.js
+var require_better_path_resolve = __commonJS((exports, module) => {
+  var path = (init_path(), __toCommonJS(exports_path));
+  var isWindows = require_is_windows();
+  module.exports = isWindows() ? winResolve : path.resolve;
+  function winResolve(p) {
+    if (arguments.length === 0)
+      return path.resolve();
+    if (typeof p !== "string") {
+      return path.resolve(p);
+    }
+    if (p[1] === ":") {
+      const cc = p[0].charCodeAt();
+      if (cc < 65 || cc > 90) {
+        p = `${p[0].toUpperCase()}${p.substr(1)}`;
+      }
+    }
+    if (p.endsWith(":")) {
+      return p;
+    }
+    return path.resolve(p);
+  }
+});
+
+// ../../../node_modules/is-subdir/index.js
+var require_is_subdir = __commonJS((exports, module) => {
+  var betterPathResolve = require_better_path_resolve();
+  var path = (init_path(), __toCommonJS(exports_path));
+  function isSubdir(parentDir, subdir) {
+    const rParent = `${betterPathResolve(parentDir)}${path.sep}`;
+    const rDir = `${betterPathResolve(subdir)}${path.sep}`;
+    return rDir.startsWith(rParent);
+  }
+  isSubdir.strict = function isSubdirStrict(parentDir, subdir) {
+    const rParent = `${betterPathResolve(parentDir)}${path.sep}`;
+    const rDir = `${betterPathResolve(subdir)}${path.sep}`;
+    return rDir !== rParent && rDir.startsWith(rParent);
+  };
+  module.exports = isSubdir;
+});
+
 // ../../../node_modules/source-map-js/lib/base64.js
 var require_base64 = __commonJS((exports) => {
   var intToCharMap = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".split("");
@@ -149054,27 +149365,27 @@ var require_util = __commonJS((exports) => {
     };
   }
   var normalize = lruMemoize(function normalize(aPath) {
-    var path = aPath;
+    var path2 = aPath;
     var url = urlParse(aPath);
     if (url) {
       if (!url.path) {
         return aPath;
       }
-      path = url.path;
+      path2 = url.path;
     }
-    var isAbsolute = exports.isAbsolute(path);
+    var isAbsolute = exports.isAbsolute(path2);
     var parts = [];
     var start = 0;
     var i2 = 0;
     while (true) {
       start = i2;
-      i2 = path.indexOf("/", start);
+      i2 = path2.indexOf("/", start);
       if (i2 === -1) {
-        parts.push(path.slice(start));
+        parts.push(path2.slice(start));
         break;
       } else {
-        parts.push(path.slice(start, i2));
-        while (i2 < path.length && path[i2] === "/") {
+        parts.push(path2.slice(start, i2));
+        while (i2 < path2.length && path2[i2] === "/") {
           i2++;
         }
       }
@@ -149095,15 +149406,15 @@ var require_util = __commonJS((exports) => {
         }
       }
     }
-    path = parts.join("/");
-    if (path === "") {
-      path = isAbsolute ? "/" : ".";
+    path2 = parts.join("/");
+    if (path2 === "") {
+      path2 = isAbsolute ? "/" : ".";
     }
     if (url) {
-      url.path = path;
+      url.path = path2;
       return urlGenerate(url);
     }
-    return path;
+    return path2;
   });
   exports.normalize = normalize;
   function join(aRoot, aPath) {
@@ -154569,211 +154880,8 @@ var { parse } = import_standalone.packages.parser;
 var { generate } = import_standalone.packages.generator;
 var traverse = import_standalone.packages.traverse.default;
 var types = import_standalone.packages.types;
-// node:path
-var L = Object.create;
-var h = Object.defineProperty;
-var D = Object.getOwnPropertyDescriptor;
-var T = Object.getOwnPropertyNames;
-var _ = Object.getPrototypeOf;
-var E = Object.prototype.hasOwnProperty;
-var R = (s, e) => () => (e || s((e = { exports: {} }).exports, e), e.exports);
-var N = (s, e, r, t) => {
-  if (e && typeof e == "object" || typeof e == "function")
-    for (let i of T(e))
-      !E.call(s, i) && i !== r && h(s, i, { get: () => e[i], enumerable: !(t = D(e, i)) || t.enumerable });
-  return s;
-};
-var j = (s, e, r) => (r = s != null ? L(_(s)) : {}, N(e || !s || !s.__esModule ? h(r, "default", { value: s, enumerable: true }) : r, s));
-var k = R((W, w) => {
-  function v(s) {
-    if (typeof s != "string")
-      throw new TypeError("Path must be a string. Received " + JSON.stringify(s));
-  }
-  function C(s, e) {
-    for (var r = "", t = 0, i = -1, a = 0, n, l = 0;l <= s.length; ++l) {
-      if (l < s.length)
-        n = s.charCodeAt(l);
-      else {
-        if (n === 47)
-          break;
-        n = 47;
-      }
-      if (n === 47) {
-        if (!(i === l - 1 || a === 1))
-          if (i !== l - 1 && a === 2) {
-            if (r.length < 2 || t !== 2 || r.charCodeAt(r.length - 1) !== 46 || r.charCodeAt(r.length - 2) !== 46) {
-              if (r.length > 2) {
-                var f = r.lastIndexOf("/");
-                if (f !== r.length - 1) {
-                  f === -1 ? (r = "", t = 0) : (r = r.slice(0, f), t = r.length - 1 - r.lastIndexOf("/")), i = l, a = 0;
-                  continue;
-                }
-              } else if (r.length === 2 || r.length === 1) {
-                r = "", t = 0, i = l, a = 0;
-                continue;
-              }
-            }
-            e && (r.length > 0 ? r += "/.." : r = "..", t = 2);
-          } else
-            r.length > 0 ? r += "/" + s.slice(i + 1, l) : r = s.slice(i + 1, l), t = l - i - 1;
-        i = l, a = 0;
-      } else
-        n === 46 && a !== -1 ? ++a : a = -1;
-    }
-    return r;
-  }
-  function F(s, e) {
-    var r = e.dir || e.root, t = e.base || (e.name || "") + (e.ext || "");
-    return r ? r === e.root ? r + t : r + s + t : t;
-  }
-  var m = { resolve: function() {
-    for (var e = "", r = false, t, i = arguments.length - 1;i >= -1 && !r; i--) {
-      var a;
-      i >= 0 ? a = arguments[i] : (t === undefined && (t = process.cwd()), a = t), v(a), a.length !== 0 && (e = a + "/" + e, r = a.charCodeAt(0) === 47);
-    }
-    return e = C(e, !r), r ? e.length > 0 ? "/" + e : "/" : e.length > 0 ? e : ".";
-  }, normalize: function(e) {
-    if (v(e), e.length === 0)
-      return ".";
-    var r = e.charCodeAt(0) === 47, t = e.charCodeAt(e.length - 1) === 47;
-    return e = C(e, !r), e.length === 0 && !r && (e = "."), e.length > 0 && t && (e += "/"), r ? "/" + e : e;
-  }, isAbsolute: function(e) {
-    return v(e), e.length > 0 && e.charCodeAt(0) === 47;
-  }, join: function() {
-    if (arguments.length === 0)
-      return ".";
-    for (var e, r = 0;r < arguments.length; ++r) {
-      var t = arguments[r];
-      v(t), t.length > 0 && (e === undefined ? e = t : e += "/" + t);
-    }
-    return e === undefined ? "." : m.normalize(e);
-  }, relative: function(e, r) {
-    if (v(e), v(r), e === r || (e = m.resolve(e), r = m.resolve(r), e === r))
-      return "";
-    for (var t = 1;t < e.length && e.charCodeAt(t) === 47; ++t)
-      ;
-    for (var i = e.length, a = i - t, n = 1;n < r.length && r.charCodeAt(n) === 47; ++n)
-      ;
-    for (var l = r.length, f = l - n, c = a < f ? a : f, d = -1, o = 0;o <= c; ++o) {
-      if (o === c) {
-        if (f > c) {
-          if (r.charCodeAt(n + o) === 47)
-            return r.slice(n + o + 1);
-          if (o === 0)
-            return r.slice(n + o);
-        } else
-          a > c && (e.charCodeAt(t + o) === 47 ? d = o : o === 0 && (d = 0));
-        break;
-      }
-      var A = e.charCodeAt(t + o), z2 = r.charCodeAt(n + o);
-      if (A !== z2)
-        break;
-      A === 47 && (d = o);
-    }
-    var b = "";
-    for (o = t + d + 1;o <= i; ++o)
-      (o === i || e.charCodeAt(o) === 47) && (b.length === 0 ? b += ".." : b += "/..");
-    return b.length > 0 ? b + r.slice(n + d) : (n += d, r.charCodeAt(n) === 47 && ++n, r.slice(n));
-  }, _makeLong: function(e) {
-    return e;
-  }, dirname: function(e) {
-    if (v(e), e.length === 0)
-      return ".";
-    for (var r = e.charCodeAt(0), t = r === 47, i = -1, a = true, n = e.length - 1;n >= 1; --n)
-      if (r = e.charCodeAt(n), r === 47) {
-        if (!a) {
-          i = n;
-          break;
-        }
-      } else
-        a = false;
-    return i === -1 ? t ? "/" : "." : t && i === 1 ? "//" : e.slice(0, i);
-  }, basename: function(e, r) {
-    if (r !== undefined && typeof r != "string")
-      throw new TypeError('"ext" argument must be a string');
-    v(e);
-    var t = 0, i = -1, a = true, n;
-    if (r !== undefined && r.length > 0 && r.length <= e.length) {
-      if (r.length === e.length && r === e)
-        return "";
-      var l = r.length - 1, f = -1;
-      for (n = e.length - 1;n >= 0; --n) {
-        var c = e.charCodeAt(n);
-        if (c === 47) {
-          if (!a) {
-            t = n + 1;
-            break;
-          }
-        } else
-          f === -1 && (a = false, f = n + 1), l >= 0 && (c === r.charCodeAt(l) ? --l === -1 && (i = n) : (l = -1, i = f));
-      }
-      return t === i ? i = f : i === -1 && (i = e.length), e.slice(t, i);
-    } else {
-      for (n = e.length - 1;n >= 0; --n)
-        if (e.charCodeAt(n) === 47) {
-          if (!a) {
-            t = n + 1;
-            break;
-          }
-        } else
-          i === -1 && (a = false, i = n + 1);
-      return i === -1 ? "" : e.slice(t, i);
-    }
-  }, extname: function(e) {
-    v(e);
-    for (var r = -1, t = 0, i = -1, a = true, n = 0, l = e.length - 1;l >= 0; --l) {
-      var f = e.charCodeAt(l);
-      if (f === 47) {
-        if (!a) {
-          t = l + 1;
-          break;
-        }
-        continue;
-      }
-      i === -1 && (a = false, i = l + 1), f === 46 ? r === -1 ? r = l : n !== 1 && (n = 1) : r !== -1 && (n = -1);
-    }
-    return r === -1 || i === -1 || n === 0 || n === 1 && r === i - 1 && r === t + 1 ? "" : e.slice(r, i);
-  }, format: function(e) {
-    if (e === null || typeof e != "object")
-      throw new TypeError('The "pathObject" argument must be of type Object. Received type ' + typeof e);
-    return F("/", e);
-  }, parse: function(e) {
-    v(e);
-    var r = { root: "", dir: "", base: "", ext: "", name: "" };
-    if (e.length === 0)
-      return r;
-    var t = e.charCodeAt(0), i = t === 47, a;
-    i ? (r.root = "/", a = 1) : a = 0;
-    for (var n = -1, l = 0, f = -1, c = true, d = e.length - 1, o = 0;d >= a; --d) {
-      if (t = e.charCodeAt(d), t === 47) {
-        if (!c) {
-          l = d + 1;
-          break;
-        }
-        continue;
-      }
-      f === -1 && (c = false, f = d + 1), t === 46 ? n === -1 ? n = d : o !== 1 && (o = 1) : n !== -1 && (o = -1);
-    }
-    return n === -1 || f === -1 || o === 0 || o === 1 && n === f - 1 && n === l + 1 ? f !== -1 && (l === 0 && i ? r.base = r.name = e.slice(1, f) : r.base = r.name = e.slice(l, f)) : (l === 0 && i ? (r.name = e.slice(1, n), r.base = e.slice(1, f)) : (r.name = e.slice(l, n), r.base = e.slice(l, f)), r.ext = e.slice(n, f)), l > 0 ? r.dir = e.slice(0, l - 1) : i && (r.dir = "/"), r;
-  }, sep: "/", delimiter: ":", win32: null, posix: null };
-  m.posix = m;
-  w.exports = m;
-});
-var x = j(k());
-var u = x;
-var J = x;
-var P = function(s) {
-  return s;
-};
-var S = function() {
-  throw new Error("Not implemented");
-};
-u.parse ??= S;
-J.parse ??= S;
-var g = { resolve: u.resolve.bind(u), normalize: u.normalize.bind(u), isAbsolute: u.isAbsolute.bind(u), join: u.join.bind(u), relative: u.relative.bind(u), toNamespacedPath: P, dirname: u.dirname.bind(u), basename: u.basename.bind(u), extname: u.extname.bind(u), format: u.format.bind(u), parse: u.parse.bind(u), sep: "/", delimiter: ":", win32: undefined, posix: undefined, _makeLong: P };
-var y = { sep: "\\", delimiter: ";", win32: undefined, ...g, posix: g };
-g.win32 = y.win32 = y;
-g.posix = g;
+// ../../../packages/parser/src/code-edit/image.ts
+init_path();
 // ../../../packages/models/src/chat/suggestion.ts
 var ChatSuggestionSchema = z.object({
   title: z.string().describe("The display title of the suggestion. This will be shown to the user. Keep it concise but descriptive."),
@@ -155070,13 +155178,13 @@ var t2 = { get exports() {
         (p > 14000 || m > 26697) && h2 - l > 100 && (u2 < l && (d[p] = l - u2, p += 2, u2 = l), c = UZIP.F._writeBlock(l == h2 - 1 || u2 == h2 ? 1 : 0, d, p, v, e3, w, l - w, t3, c), p = m = v = 0, w = l);
         var F = 0;
         l < h2 - 2 && (F = UZIP.F._bestMatch(e3, l, g2, b, Math.min(o[2], h2 - l), o[3]));
-        var _2 = F >>> 16, B = 65535 & F;
+        var _2 = F >>> 16, B2 = 65535 & F;
         if (F != 0) {
-          B = 65535 & F;
-          var U = s(_2 = F >>> 16, a.of0);
-          a.lhst[257 + U]++;
-          var C = s(B, a.df0);
-          a.dhst[C]++, v += a.exb[U] + a.dxb[C], d[p] = _2 << 23 | l - u2, d[p + 1] = B << 16 | U << 8 | C, p += 2, u2 = l + _2;
+          B2 = 65535 & F;
+          var U2 = s(_2 = F >>> 16, a.of0);
+          a.lhst[257 + U2]++;
+          var C = s(B2, a.df0);
+          a.dhst[C]++, v += a.exb[U2] + a.dxb[C], d[p] = _2 << 23 | l - u2, d[p + 1] = B2 << 16 | U2 << 8 | C, p += 2, u2 = l + _2;
         } else
           a.lhst[e3[l]]++;
         m++;
@@ -155119,31 +155227,31 @@ var t2 = { get exports() {
     v.lhst[256]++, u2 = (c = UZIP.F.getTrees())[0], h2 = c[1], d = c[2], A = c[3], g2 = c[4], p = c[5], m = c[6], w = c[7];
     var E2 = 32 + ((l + 3 & 7) == 0 ? 0 : 8 - (l + 3 & 7)) + (s << 3), F = i2 + UZIP.F.contSize(v.fltree, v.lhst) + UZIP.F.contSize(v.fdtree, v.dhst), _2 = i2 + UZIP.F.contSize(v.ltree, v.lhst) + UZIP.F.contSize(v.dtree, v.dhst);
     _2 += 14 + 3 * p + UZIP.F.contSize(v.itree, v.ihst) + (2 * v.ihst[16] + 3 * v.ihst[17] + 7 * v.ihst[18]);
-    for (var B = 0;B < 286; B++)
-      v.lhst[B] = 0;
-    for (B = 0;B < 30; B++)
-      v.dhst[B] = 0;
-    for (B = 0;B < 19; B++)
-      v.ihst[B] = 0;
-    var U = E2 < F && E2 < _2 ? 0 : F < _2 ? 1 : 2;
-    if (b(f, l, e3), b(f, l + 1, U), l += 3, U == 0) {
+    for (var B2 = 0;B2 < 286; B2++)
+      v.lhst[B2] = 0;
+    for (B2 = 0;B2 < 30; B2++)
+      v.dhst[B2] = 0;
+    for (B2 = 0;B2 < 19; B2++)
+      v.ihst[B2] = 0;
+    var U2 = E2 < F && E2 < _2 ? 0 : F < _2 ? 1 : 2;
+    if (b(f, l, e3), b(f, l + 1, U2), l += 3, U2 == 0) {
       for (;(7 & l) != 0; )
         l++;
       l = UZIP.F._copyExact(o, a, s, f, l);
     } else {
-      var C, I;
-      if (U == 1 && (C = v.fltree, I = v.fdtree), U == 2) {
-        UZIP.F.makeCodes(v.ltree, u2), UZIP.F.revCodes(v.ltree, u2), UZIP.F.makeCodes(v.dtree, h2), UZIP.F.revCodes(v.dtree, h2), UZIP.F.makeCodes(v.itree, d), UZIP.F.revCodes(v.itree, d), C = v.ltree, I = v.dtree, y2(f, l, A - 257), y2(f, l += 5, g2 - 1), y2(f, l += 5, p - 4), l += 4;
-        for (var Q = 0;Q < p; Q++)
-          y2(f, l + 3 * Q, v.itree[1 + (v.ordr[Q] << 1)]);
+      var C, I2;
+      if (U2 == 1 && (C = v.fltree, I2 = v.fdtree), U2 == 2) {
+        UZIP.F.makeCodes(v.ltree, u2), UZIP.F.revCodes(v.ltree, u2), UZIP.F.makeCodes(v.dtree, h2), UZIP.F.revCodes(v.dtree, h2), UZIP.F.makeCodes(v.itree, d), UZIP.F.revCodes(v.itree, d), C = v.ltree, I2 = v.dtree, y2(f, l, A - 257), y2(f, l += 5, g2 - 1), y2(f, l += 5, p - 4), l += 4;
+        for (var Q2 = 0;Q2 < p; Q2++)
+          y2(f, l + 3 * Q2, v.itree[1 + (v.ordr[Q2] << 1)]);
         l += 3 * p, l = UZIP.F._codeTiny(m, v.itree, f, l), l = UZIP.F._codeTiny(w, v.itree, f, l);
       }
       for (var M = a, x2 = 0;x2 < r2; x2 += 2) {
         for (var S2 = t3[x2], R2 = S2 >>> 23, T2 = M + (8388607 & S2);M < T2; )
           l = UZIP.F._writeLit(o[M++], C, f, l);
         if (R2 != 0) {
-          var O = t3[x2 + 1], P2 = O >> 16, H = O >> 8 & 255, L2 = 255 & O;
-          y2(f, l = UZIP.F._writeLit(257 + H, C, f, l), R2 - v.of0[H]), l += v.exb[H], b(f, l = UZIP.F._writeLit(L2, I, f, l), P2 - v.df0[L2]), l += v.dxb[L2], M += R2;
+          var O2 = t3[x2 + 1], P2 = O2 >> 16, H2 = O2 >> 8 & 255, L2 = 255 & O2;
+          y2(f, l = UZIP.F._writeLit(257 + H2, C, f, l), R2 - v.of0[H2]), l += v.exb[H2], b(f, l = UZIP.F._writeLit(L2, I2, f, l), P2 - v.df0[L2]), l += v.dxb[L2], M += R2;
         }
       }
       l = UZIP.F._writeLit(256, C, f, l);
@@ -155255,21 +155363,21 @@ var t2 = { get exports() {
           m = a(e3, F, 5) + 257, w = a(e3, F + 5, 5) + 1, v = a(e3, F + 10, 4) + 4, F += 14;
           for (var _2 = 0;_2 < 38; _2 += 2)
             u2.itree[_2] = 0, u2.itree[_2 + 1] = 0;
-          var B = 1;
+          var B2 = 1;
           for (_2 = 0;_2 < v; _2++) {
-            var U = a(e3, F + 3 * _2, 3);
-            u2.itree[1 + (u2.ordr[_2] << 1)] = U, U > B && (B = U);
+            var U2 = a(e3, F + 3 * _2, 3);
+            u2.itree[1 + (u2.ordr[_2] << 1)] = U2, U2 > B2 && (B2 = U2);
           }
-          F += 3 * v, f(u2.itree, B), l(u2.itree, B, u2.imap), d = u2.lmap, A = u2.dmap, F = s(u2.imap, (1 << B) - 1, m + w, e3, F, u2.ttree);
+          F += 3 * v, f(u2.itree, B2), l(u2.itree, B2, u2.imap), d = u2.lmap, A = u2.dmap, F = s(u2.imap, (1 << B2) - 1, m + w, e3, F, u2.ttree);
           var C = i2._copyOut(u2.ttree, 0, m, u2.ltree);
           b = (1 << C) - 1;
-          var I = i2._copyOut(u2.ttree, m, w, u2.dtree);
-          y2 = (1 << I) - 1, f(u2.ltree, C), l(u2.ltree, C, d), f(u2.dtree, I), l(u2.dtree, I, A);
+          var I2 = i2._copyOut(u2.ttree, m, w, u2.dtree);
+          y2 = (1 << I2) - 1, f(u2.ltree, C), l(u2.ltree, C, d), f(u2.dtree, I2), l(u2.dtree, I2, A);
         }
         for (;; ) {
-          var Q = d[c(e3, F) & b];
-          F += 15 & Q;
-          var M = Q >>> 4;
+          var Q2 = d[c(e3, F) & b];
+          F += 15 & Q2;
+          var M = Q2 >>> 4;
           if (M >>> 8 == 0)
             t3[E2++] = M;
           else {
@@ -155282,16 +155390,16 @@ var t2 = { get exports() {
             }
             var R2 = A[c(e3, F) & y2];
             F += 15 & R2;
-            var T2 = R2 >>> 4, O = u2.ddef[T2], P2 = (O >>> 4) + o(e3, F, 15 & O);
-            for (F += 15 & O, h2 && (t3 = UZIP.F._check(t3, E2 + (1 << 17)));E2 < x2; )
+            var T2 = R2 >>> 4, O2 = u2.ddef[T2], P2 = (O2 >>> 4) + o(e3, F, 15 & O2);
+            for (F += 15 & O2, h2 && (t3 = UZIP.F._check(t3, E2 + (1 << 17)));E2 < x2; )
               t3[E2] = t3[E2++ - P2], t3[E2] = t3[E2++ - P2], t3[E2] = t3[E2++ - P2], t3[E2] = t3[E2++ - P2];
             E2 = x2;
           }
         }
       } else {
         (7 & F) != 0 && (F += 8 - (7 & F));
-        var H = 4 + (F >>> 3), L2 = e3[H - 4] | e3[H - 3] << 8;
-        h2 && (t3 = UZIP.F._check(t3, E2 + L2)), t3.set(new r2(e3.buffer, e3.byteOffset + H, L2), E2), F = H + L2 << 3, E2 += L2;
+        var H2 = 4 + (F >>> 3), L2 = e3[H2 - 4] | e3[H2 - 3] << 8;
+        h2 && (t3 = UZIP.F._check(t3, E2 + L2)), t3.set(new r2(e3.buffer, e3.byteOffset + H2, L2), E2), F = H2 + L2 << 3, E2 += L2;
       }
     return t3.length == E2 ? t3 : t3.slice(0, E2);
   }, UZIP.F._check = function(e3, t3) {
@@ -155492,29 +155600,29 @@ var UPNG = function() {
       for (p = o.tabs.tRNS ? o.tabs.tRNS : -1, w = 0;w < i; w++) {
         const e3 = w * f, i2 = w * r;
         if (h2 == 1)
-          for (var B = 0;B < r; B++) {
-            var U = (F = 255 * (t4[e3 + (B >>> 3)] >>> 7 - (7 & B) & 1)) == 255 * p ? 0 : 255;
-            c[i2 + B] = U << 24 | F << 16 | F << 8 | F;
+          for (var B2 = 0;B2 < r; B2++) {
+            var U2 = (F = 255 * (t4[e3 + (B2 >>> 3)] >>> 7 - (7 & B2) & 1)) == 255 * p ? 0 : 255;
+            c[i2 + B2] = U2 << 24 | F << 16 | F << 8 | F;
           }
         else if (h2 == 2)
-          for (B = 0;B < r; B++) {
-            U = (F = 85 * (t4[e3 + (B >>> 2)] >>> 6 - ((3 & B) << 1) & 3)) == 85 * p ? 0 : 255;
-            c[i2 + B] = U << 24 | F << 16 | F << 8 | F;
+          for (B2 = 0;B2 < r; B2++) {
+            U2 = (F = 85 * (t4[e3 + (B2 >>> 2)] >>> 6 - ((3 & B2) << 1) & 3)) == 85 * p ? 0 : 255;
+            c[i2 + B2] = U2 << 24 | F << 16 | F << 8 | F;
           }
         else if (h2 == 4)
-          for (B = 0;B < r; B++) {
-            U = (F = 17 * (t4[e3 + (B >>> 1)] >>> 4 - ((1 & B) << 2) & 15)) == 17 * p ? 0 : 255;
-            c[i2 + B] = U << 24 | F << 16 | F << 8 | F;
+          for (B2 = 0;B2 < r; B2++) {
+            U2 = (F = 17 * (t4[e3 + (B2 >>> 1)] >>> 4 - ((1 & B2) << 2) & 15)) == 17 * p ? 0 : 255;
+            c[i2 + B2] = U2 << 24 | F << 16 | F << 8 | F;
           }
         else if (h2 == 8)
-          for (B = 0;B < r; B++) {
-            U = (F = t4[e3 + B]) == p ? 0 : 255;
-            c[i2 + B] = U << 24 | F << 16 | F << 8 | F;
+          for (B2 = 0;B2 < r; B2++) {
+            U2 = (F = t4[e3 + B2]) == p ? 0 : 255;
+            c[i2 + B2] = U2 << 24 | F << 16 | F << 8 | F;
           }
         else if (h2 == 16)
-          for (B = 0;B < r; B++) {
-            F = t4[e3 + (B << 1)], U = d(t4, e3 + (B << 1)) == p ? 0 : 255;
-            c[i2 + B] = U << 24 | F << 16 | F << 8 | F;
+          for (B2 = 0;B2 < r; B2++) {
+            F = t4[e3 + (B2 << 1)], U2 = d(t4, e3 + (B2 << 1)) == p ? 0 : 255;
+            c[i2 + B2] = U2 << 24 | F << 16 | F << 8 | F;
           }
       }
     return l;
@@ -155577,11 +155685,11 @@ var UPNG = function() {
           if (_2 && (r = e3.H.W(r, A + (1 << 17))), f == 1 && (o = F.J, a = F.h, h2 = 511, d = 31), f == 2) {
             l = w(t4, g2, 5) + 257, c = w(t4, g2 + 5, 5) + 1, u2 = w(t4, g2 + 10, 4) + 4, g2 += 14;
             let e4 = 1;
-            for (var B = 0;B < 38; B += 2)
-              F.Q[B] = 0, F.Q[B + 1] = 0;
-            for (B = 0;B < u2; B++) {
-              const r3 = w(t4, g2 + 3 * B, 3);
-              F.Q[1 + (F.X[B] << 1)] = r3, r3 > e4 && (e4 = r3);
+            for (var B2 = 0;B2 < 38; B2 += 2)
+              F.Q[B2] = 0, F.Q[B2 + 1] = 0;
+            for (B2 = 0;B2 < u2; B2++) {
+              const r3 = w(t4, g2 + 3 * B2, 3);
+              F.Q[1 + (F.X[B2] << 1)] = r3, r3 > e4 && (e4 = r3);
             }
             g2 += 3 * u2, b(F.Q, e4), y2(F.Q, e4, F.u), o = F.w, a = F.d, g2 = v(F.u, (1 << e4) - 1, l + c, t4, g2, F.v);
             const r2 = p.V(F.v, 0, l, F.C);
@@ -156100,25 +156208,25 @@ var UPNG = function() {
         E2.push(r3.plte[w].est.rgba);
       let i3 = 0;
       for (w = 0;w < b.length; w++) {
-        const e4 = (B = b[w]).img.length;
+        const e4 = (B2 = b[w]).img.length;
         var _2 = new Uint8Array(r3.inds.buffer, i3 >> 2, e4 >> 2);
         F.push(_2);
         const t6 = new Uint8Array(r3.abuf, i3, e4);
-        h2 && dither(B.img, B.rect.width, B.rect.height, E2, t6, _2), B.img.set(t6), i3 += e4;
+        h2 && dither(B2.img, B2.rect.width, B2.rect.height, E2, t6, _2), B2.img.set(t6), i3 += e4;
       }
     } else
       for (p = 0;p < b.length; p++) {
-        var B = b[p];
-        const e3 = new Uint32Array(B.img.buffer);
-        var U = B.rect.width;
+        var B2 = b[p];
+        const e3 = new Uint32Array(B2.img.buffer);
+        var U2 = B2.rect.width;
         m = e3.length, _2 = new Uint8Array(m);
         F.push(_2);
         for (w = 0;w < m; w++) {
           const t5 = e3[w];
           if (w != 0 && t5 == e3[w - 1])
             _2[w] = _2[w - 1];
-          else if (w > U && t5 == e3[w - U])
-            _2[w] = _2[w - U];
+          else if (w > U2 && t5 == e3[w - U2])
+            _2[w] = _2[w - U2];
           else {
             let e4 = y2[t5];
             if (e4 == null && (y2[t5] = e4 = E2.length, E2.push(t5), E2.length >= 300))
@@ -156130,43 +156238,43 @@ var UPNG = function() {
     const C = E2.length;
     C <= 256 && u2 == 0 && (A = C <= 2 ? 1 : C <= 4 ? 2 : C <= 16 ? 4 : 8, A = Math.max(A, c));
     for (p = 0;p < b.length; p++) {
-      (B = b[p]).rect.x, B.rect.y;
-      U = B.rect.width;
-      const e3 = B.rect.height;
-      let t5 = B.img;
+      (B2 = b[p]).rect.x, B2.rect.y;
+      U2 = B2.rect.width;
+      const e3 = B2.rect.height;
+      let t5 = B2.img;
       new Uint32Array(t5.buffer);
-      let r3 = 4 * U, i3 = 4;
+      let r3 = 4 * U2, i3 = 4;
       if (C <= 256 && u2 == 0) {
-        r3 = Math.ceil(A * U / 8);
-        var I = new Uint8Array(r3 * e3);
+        r3 = Math.ceil(A * U2 / 8);
+        var I2 = new Uint8Array(r3 * e3);
         const o3 = F[p];
         for (let t6 = 0;t6 < e3; t6++) {
           w = t6 * r3;
-          const e4 = t6 * U;
+          const e4 = t6 * U2;
           if (A == 8)
-            for (var Q = 0;Q < U; Q++)
-              I[w + Q] = o3[e4 + Q];
+            for (var Q2 = 0;Q2 < U2; Q2++)
+              I2[w + Q2] = o3[e4 + Q2];
           else if (A == 4)
-            for (Q = 0;Q < U; Q++)
-              I[w + (Q >> 1)] |= o3[e4 + Q] << 4 - 4 * (1 & Q);
+            for (Q2 = 0;Q2 < U2; Q2++)
+              I2[w + (Q2 >> 1)] |= o3[e4 + Q2] << 4 - 4 * (1 & Q2);
           else if (A == 2)
-            for (Q = 0;Q < U; Q++)
-              I[w + (Q >> 2)] |= o3[e4 + Q] << 6 - 2 * (3 & Q);
+            for (Q2 = 0;Q2 < U2; Q2++)
+              I2[w + (Q2 >> 2)] |= o3[e4 + Q2] << 6 - 2 * (3 & Q2);
           else if (A == 1)
-            for (Q = 0;Q < U; Q++)
-              I[w + (Q >> 3)] |= o3[e4 + Q] << 7 - 1 * (7 & Q);
+            for (Q2 = 0;Q2 < U2; Q2++)
+              I2[w + (Q2 >> 3)] |= o3[e4 + Q2] << 7 - 1 * (7 & Q2);
         }
-        t5 = I, d = 3, i3 = 1;
+        t5 = I2, d = 3, i3 = 1;
       } else if (v == 0 && b.length == 1) {
-        I = new Uint8Array(U * e3 * 3);
-        const o3 = U * e3;
+        I2 = new Uint8Array(U2 * e3 * 3);
+        const o3 = U2 * e3;
         for (w = 0;w < o3; w++) {
           const e4 = 3 * w, r4 = 4 * w;
-          I[e4] = t5[r4], I[e4 + 1] = t5[r4 + 1], I[e4 + 2] = t5[r4 + 2];
+          I2[e4] = t5[r4], I2[e4 + 1] = t5[r4 + 1], I2[e4 + 2] = t5[r4 + 2];
         }
-        t5 = I, d = 2, i3 = 3, r3 = 3 * U;
+        t5 = I2, d = 2, i3 = 3, r3 = 3 * U2;
       }
-      B.img = t5, B.bpl = r3, B.bpp = i3;
+      B2.img = t5, B2.bpl = r3, B2.bpp = i3;
     }
     return { ctype: d, depth: A, plte: E2, frames: b };
   }
@@ -156654,7 +156762,7 @@ function followExifOrientation(e2, t3) {
 }
 function compress(e2, t3, r2 = 0) {
   return new Promise(function(i2, o2) {
-    let a2, s2, f2, l, c, u2, h2, d, A, g2, p, m, w, v, b, y2, E2, F, _2, B;
+    let a2, s2, f2, l, c, u2, h2, d, A, g2, p, m, w, v, b, y2, E2, F, _2, B2;
     function incProgress(e3 = 5) {
       if (t3.signal && t3.signal.aborted)
         throw t3.signal.reason;
@@ -156691,7 +156799,7 @@ function compress(e2, t3, r2 = 0) {
                       let $Loop_3 = function() {
                         if (s2-- && (b > f2 || b > w)) {
                           let t4, r7;
-                          return t4 = B ? 0.95 * _2.width : _2.width, r7 = B ? 0.95 * _2.height : _2.height, [E2, F] = getNewCanvasAndCtx(t4, r7), F.drawImage(_2, 0, 0, t4, r7), d *= A === "image/png" ? 0.85 : 0.95, canvasToFile(E2, A, e2.name, e2.lastModified, d).then(function(e3) {
+                          return t4 = B2 ? 0.95 * _2.width : _2.width, r7 = B2 ? 0.95 * _2.height : _2.height, [E2, F] = getNewCanvasAndCtx(t4, r7), F.drawImage(_2, 0, 0, t4, r7), d *= A === "image/png" ? 0.85 : 0.95, canvasToFile(E2, A, e2.name, e2.lastModified, d).then(function(e3) {
                             try {
                               return y2 = e3, cleanupCanvasMemory(_2), _2 = E2, b = y2.size, setProgress(Math.min(99, Math.floor((v - b) / (v - f2) * 100))), $Loop_3;
                             } catch (e4) {
@@ -156706,7 +156814,7 @@ function compress(e2, t3, r2 = 0) {
                       if (g2 = r6, incProgress(), p = g2.size > f2, m = g2.size > e2.size, !p && !m)
                         return setProgress(100), i2(g2);
                       var a3;
-                      return w = e2.size, v = g2.size, b = v, _2 = h2, B = !t3.alwaysKeepResolution && p, (a3 = function(e3) {
+                      return w = e2.size, v = g2.size, b = v, _2 = h2, B2 = !t3.alwaysKeepResolution && p, (a3 = function(e3) {
                         for (;e3; ) {
                           if (e3.then)
                             return void e3.then(a3, o2);
@@ -156842,6 +156950,9 @@ function imageCompression(e2, t3) {
   });
 }
 imageCompression.getDataUrlFromFile = getDataUrlFromFile, imageCompression.getFilefromDataUrl = getFilefromDataUrl, imageCompression.loadImage = loadImage, imageCompression.drawImageInCanvas = drawImageInCanvas, imageCompression.drawFileInCanvas = drawFileInCanvas, imageCompression.canvasToFile = canvasToFile, imageCompression.getExifOrientation = getExifOrientation, imageCompression.handleMaxWidthOrHeight = handleMaxWidthOrHeight, imageCompression.followExifOrientation = followExifOrientation, imageCompression.cleanupCanvasMemory = cleanupCanvasMemory, imageCompression.isAutoOrientationInBrowser = isAutoOrientationInBrowser, imageCompression.approximateBelowMaximumCanvasSizeOfBrowser = approximateBelowMaximumCanvasSizeOfBrowser, imageCompression.copyExifWithoutOrientation = copyExifWithoutOrientation, imageCompression.getBrowserName = getBrowserName, imageCompression.version = "2.0.2";
+// ../../../packages/utility/src/path.ts
+var import_is_subdir = __toESM(require_is_subdir(), 1);
+init_path();
 // ../../../packages/utility/src/string.ts
 var import_lodash2 = __toESM(require_lodash(), 1);
 // ../../../packages/utility/src/tailwind.ts
@@ -162360,7 +162471,7 @@ function anPlusB(token, getNextToken) {
 var PLUSSIGN3 = 43;
 var HYPHENMINUS4 = 45;
 var QUESTIONMARK = 63;
-var U = 117;
+var U2 = 117;
 function isDelim2(token, code5) {
   return token !== null && token.type === Delim && token.value.charCodeAt(0) === code5;
 }
@@ -162398,7 +162509,7 @@ function withQuestionMarkSequence(consumed, length, getNextToken) {
 }
 function urange(token, getNextToken) {
   let length = 0;
-  if (token === null || token.type !== Ident || !cmpChar(token.value, 0, U)) {
+  if (token === null || token.type !== Ident || !cmpChar(token.value, 0, U2)) {
     return 0;
   }
   token = getNextToken(++length);
@@ -164348,7 +164459,7 @@ function createNodeStructureChecker(type, fields) {
     }
   };
 }
-function genTypesList(fieldTypes, path) {
+function genTypesList(fieldTypes, path2) {
   const docsTypes = [];
   for (let i2 = 0;i2 < fieldTypes.length; i2++) {
     const fieldType = fieldTypes[i2];
@@ -164359,9 +164470,9 @@ function genTypesList(fieldTypes, path) {
     } else if (typeof fieldType === "string") {
       docsTypes.push(fieldType);
     } else if (Array.isArray(fieldType)) {
-      docsTypes.push("List<" + (genTypesList(fieldType, path) || "any") + ">");
+      docsTypes.push("List<" + (genTypesList(fieldType, path2) || "any") + ">");
     } else {
-      throw new Error("Wrong value `" + fieldType + "` in `" + path + "` structure definition");
+      throw new Error("Wrong value `" + fieldType + "` in `" + path2 + "` structure definition");
     }
   }
   return docsTypes.join(" | ");
@@ -168884,7 +168995,7 @@ var ASTERISK6 = 42;
 var PLUSSIGN9 = 43;
 var HYPHENMINUS7 = 45;
 var SOLIDUS7 = 47;
-var U2 = 117;
+var U3 = 117;
 function defaultRecognizer(context2) {
   switch (this.tokenType) {
     case Hash:
@@ -168908,7 +169019,7 @@ function defaultRecognizer(context2) {
     case Url:
       return this.Url();
     case Ident:
-      if (this.cmpChar(this.tokenStart, U2) && this.cmpChar(this.tokenStart + 1, PLUSSIGN9)) {
+      if (this.cmpChar(this.tokenStart, U3) && this.cmpChar(this.tokenStart + 1, PLUSSIGN9)) {
         return this.UnicodeRange();
       } else {
         return this.Identifier();
