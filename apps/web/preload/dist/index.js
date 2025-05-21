@@ -62,8 +62,7 @@ var require__trimmedEndIndex = __commonJS((exports, module) => {
   var reWhitespace = /\s/;
   function trimmedEndIndex(string) {
     var index = string.length;
-    while (index-- && reWhitespace.test(string.charAt(index))) {
-    }
+    while (index-- && reWhitespace.test(string.charAt(index))) {}
     return index;
   }
   module.exports = trimmedEndIndex;
@@ -98,8 +97,7 @@ var require__getRawTag = __commonJS((exports, module) => {
     try {
       value2[symToStringTag] = undefined;
       var unmasked = true;
-    } catch (e) {
-    }
+    } catch (e) {}
     var result = nativeObjectToString.call(value2);
     if (unmasked) {
       if (isOwn) {
@@ -364,8 +362,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, arguments, function() {
-      });
+      }(Color, arguments, function() {});
     };
     chroma["default"] = chroma;
     _interpolators = [];
@@ -709,8 +706,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, slice.call(arguments).concat(["lab"]), function() {
-      });
+      }(Color, slice.call(arguments).concat(["lab"]), function() {});
     };
     _input.lab = lab2rgb;
     Color.prototype.lab = function() {
@@ -963,8 +959,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, slice.call(arguments).concat(["rgb"]), function() {
-      });
+      }(Color, slice.call(arguments).concat(["rgb"]), function() {});
     };
     Color.prototype.rgb = function(round2) {
       if (round2 == null) {
@@ -1154,8 +1149,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, slice.call(arguments).concat(["hex"]), function() {
-      });
+      }(Color, slice.call(arguments).concat(["hex"]), function() {});
     };
     Color.prototype.hex = function(mode) {
       if (mode == null) {
@@ -1246,8 +1240,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, slice.call(arguments).concat(["hsl"]), function() {
-      });
+      }(Color, slice.call(arguments).concat(["hsl"]), function() {});
     };
     _input.hsl = hsl2rgb;
     Color.prototype.hsl = function() {
@@ -1331,8 +1324,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, slice.call(arguments).concat(["hsv"]), function() {
-      });
+      }(Color, slice.call(arguments).concat(["hsv"]), function() {});
     };
     _input.hsv = hsv2rgb;
     Color.prototype.hsv = function() {
@@ -1452,8 +1444,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, slice.call(arguments).concat(["hcg"]), function() {
-      });
+      }(Color, slice.call(arguments).concat(["hcg"]), function() {});
     };
     _input.hcg = hcg2rgb;
     Color.prototype.hcg = function() {
@@ -1510,8 +1501,7 @@ var require_chroma = __commonJS((exports, module) => {
         return mode + "(" + rgba.slice(0, 3).map(round).join(",") + ")";
       } else if (mode === "rgba") {
         return mode + "(" + rgba.slice(0, 3).map(round).join(",") + "," + rgba[3] + ")";
-      } else {
-      }
+      } else {}
     };
     rnd = function(a) {
       return round(a * 100) / 100;
@@ -1535,8 +1525,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, slice.call(arguments).concat(["css"]), function() {
-      });
+      }(Color, slice.call(arguments).concat(["css"]), function() {});
     };
     Color.prototype.css = function(mode) {
       if (mode == null) {
@@ -1664,8 +1653,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, slice.call(arguments).concat(["cmyk"]), function() {
-      });
+      }(Color, slice.call(arguments).concat(["cmyk"]), function() {});
     };
     Color.prototype.cmyk = function() {
       return rgb2cmyk(this._rgb);
@@ -1692,8 +1680,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, slice.call(arguments).concat(["gl"]), function() {
-      });
+      }(Color, slice.call(arguments).concat(["gl"]), function() {});
     };
     Color.prototype.gl = function() {
       var rgb;
@@ -1796,8 +1783,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, slice.call(arguments).concat(["temperature"]), function() {
-      });
+      }(Color, slice.call(arguments).concat(["temperature"]), function() {});
     };
     _input.temperature = _input.kelvin = _input.K = temperature2rgb;
     Color.prototype.temperature = function() {
@@ -2679,8 +2665,7 @@ var require_chroma = __commonJS((exports, module) => {
         ctor.prototype = func.prototype;
         var child2 = new ctor, result = func.apply(child2, args);
         return Object(result) === result ? result : child2;
-      }(Color, slice.call(arguments).concat(["hsi"]), function() {
-      });
+      }(Color, slice.call(arguments).concat(["hsi"]), function() {});
     };
     _input.hsi = hsi2rgb;
     Color.prototype.hsi = function() {
@@ -2793,8 +2778,7 @@ var require_is_implemented = __commonJS((exports, module) => {
 
 // ../../../node_modules/es5-ext/function/noop.js
 var require_noop = __commonJS((exports, module) => {
-  module.exports = function() {
-  };
+  module.exports = function() {};
 });
 
 // ../../../node_modules/es5-ext/object/is-value.js
@@ -2936,8 +2920,7 @@ var require_shim = __commonJS((exports, module) => {
       try {
         set = desc.set;
         set.call(tmpObj1, tmpObj2);
-      } catch (ignore) {
-      }
+      } catch (ignore) {}
       if (Object.getPrototypeOf(tmpObj1) === tmpObj2)
         return { set, level: 2 };
     }
@@ -3432,8 +3415,7 @@ var require_polyfill = __commonJS((exports, module) => {
     try {
       String(NativeSymbol());
       isNativeSafe = true;
-    } catch (ignore) {
-    }
+    } catch (ignore) {}
   } else {
     NativeSymbol = null;
   }
@@ -12006,10 +11988,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
     function _isNativeReflectConstruct() {
       try {
-        var t2 = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
-        }));
-      } catch (t3) {
-      }
+        var t2 = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {}));
+      } catch (t3) {}
       return (_isNativeReflectConstruct = function() {
         return !!t2;
       })();
@@ -12118,12 +12098,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       }
       e.wrap = wrap2;
       var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {};
-      function Generator() {
-      }
-      function GeneratorFunction() {
-      }
-      function GeneratorFunctionPrototype() {
-      }
+      function Generator() {}
+      function GeneratorFunction() {}
+      function GeneratorFunctionPrototype() {}
       var p = {};
       define3(p, a, function() {
         return this;
@@ -12568,8 +12545,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     var versions$2 = {};
     var release = {};
     var config$1 = {};
-    function noop$2() {
-    }
+    function noop$2() {}
     var on = noop$2;
     var addListener = noop$2;
     var once$1 = noop$2;
@@ -16233,8 +16209,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       return validate$7(arrayOfType.apply(undefined, arguments));
     }
     function assertEach(callback) {
-      var childValidator = browser$1$1.env.BABEL_TYPES_8_BREAKING ? validateChild : function() {
-      };
+      var childValidator = browser$1$1.env.BABEL_TYPES_8_BREAKING ? validateChild : function() {};
       function validator(node2, key, val) {
         if (!Array.isArray(val))
           return;
@@ -16702,8 +16677,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
           validate: assertNodeType("Program")
         },
         comments: {
-          validate: !browser$1$1.env.BABEL_TYPES_8_BREAKING ? Object.assign(function() {
-          }, {
+          validate: !browser$1$1.env.BABEL_TYPES_8_BREAKING ? Object.assign(function() {}, {
             each: {
               oneOfNodeTypes: ["CommentBlock", "CommentLine"]
             }
@@ -16711,8 +16685,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
           optional: true
         },
         tokens: {
-          validate: assertEach(Object.assign(function() {
-          }, {
+          validate: assertEach(Object.assign(function() {}, {
             type: "any"
           })),
           optional: true
@@ -16939,8 +16912,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       deprecatedAlias: "NumberLiteral",
       fields: {
         value: {
-          validate: chain(assertValueType("number"), Object.assign(function(node2, key, val) {
-          }, {
+          validate: chain(assertValueType("number"), Object.assign(function(node2, key, val) {}, {
             type: "number"
           }))
         }
@@ -18835,14 +18807,12 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
       aliases: ["Expression"],
       fields: !browser$1$1.env.BABEL_TYPES_8_BREAKING ? {
         object: {
-          validate: Object.assign(function() {
-          }, {
+          validate: Object.assign(function() {}, {
             oneOfNodeTypes: ["Expression"]
           })
         },
         callee: {
-          validate: Object.assign(function() {
-          }, {
+          validate: Object.assign(function() {}, {
             oneOfNodeTypes: ["Expression"]
           })
         }
@@ -26426,8 +26396,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
           return `/* @babel/template */;
 ` + str;
         },
-        validate: function validate() {
-        },
+        validate: function validate() {},
         unwrap: function unwrap(ast) {
           return fn(ast.program.body.slice(1));
         }
@@ -26477,8 +26446,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
       code: function code(str) {
         return str;
       },
-      validate: function validate() {
-      },
+      validate: function validate() {},
       unwrap: function unwrap(ast) {
         return ast.program;
       }
@@ -27072,8 +27040,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
           var regex2 = null;
           try {
             regex2 = new RegExp(pattern2, flags);
-          } catch (_) {
-          }
+          } catch (_) {}
           var node2 = this.estreeParseLiteral(regex2);
           node2.regex = {
             pattern: pattern2,
@@ -27130,8 +27097,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
           delete expression2.extra;
           return stmt;
         };
-        _proto.fillOptionalPropertiesForTSESLint = function fillOptionalPropertiesForTSESLint(node2) {
-        };
+        _proto.fillOptionalPropertiesForTSESLint = function fillOptionalPropertiesForTSESLint(node2) {};
         _proto.cloneEstreeStringLiteral = function cloneEstreeStringLiteral(node2) {
           var { start, end, loc, range, raw, value: value2 } = node2;
           var cloned = Object.create(node2.constructor.prototype);
@@ -33118,8 +33084,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
         }
         return this.raise(toParseError, at, details);
       };
-      _proto.updateContext = function updateContext(prevType) {
-      };
+      _proto.updateContext = function updateContext(prevType) {};
       _proto.unexpected = function unexpected(loc, type2) {
         throw this.raise(Errors.UnexpectedToken, loc != null ? loc : this.state.startLoc, {
           expected: type2 ? tokenLabelName(type2) : null
@@ -35961,8 +35926,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
             this.raise(TSErrors.ImportReflectionHasImportType, node2.specifiers[0].loc.start);
           }
         };
-        _proto.checkDuplicateExports = function checkDuplicateExports() {
-        };
+        _proto.checkDuplicateExports = function checkDuplicateExports() {};
         _proto.isPotentialImportPhase = function isPotentialImportPhase(isExport) {
           if (_superClass.prototype.isPotentialImportPhase.call(this, isExport))
             return true;
@@ -39058,8 +39022,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
         }
         return this.finishNode(node2, "ModuleExpression");
       };
-      _proto.parsePropertyNamePrefixOperator = function parsePropertyNamePrefixOperator(prop2) {
-      };
+      _proto.parsePropertyNamePrefixOperator = function parsePropertyNamePrefixOperator(prop2) {};
       return _createClass(ExpressionParser2);
     }(LValParser);
     var loopLabel = {
@@ -40335,8 +40298,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
       _proto.declareClassPrivateMethodInScope = function declareClassPrivateMethodInScope(node2, kind) {
         this.classScope.declarePrivateName(this.getPrivateNameSV(node2.key), kind, node2.key.loc.start);
       };
-      _proto.parsePostMemberNameModifiers = function parsePostMemberNameModifiers(methodOrProp) {
-      };
+      _proto.parsePostMemberNameModifiers = function parsePostMemberNameModifiers(methodOrProp) {};
       _proto.parseClassPrivateProperty = function parseClassPrivateProperty(node2) {
         this.parseInitializer(node2);
         this.semicolon();
@@ -41114,8 +41076,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
             try {
               options.sourceType = "script";
               return getParser(options, input).parse();
-            } catch (_unused) {
-            }
+            } catch (_unused) {}
           } else {
             ast.program.sourceType = "script";
           }
@@ -41124,8 +41085,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
           try {
             options.sourceType = "script";
             return getParser(options, input).parse();
-          } catch (_unused2) {
-          }
+          } catch (_unused2) {}
           throw moduleError;
         }
       } else {
@@ -43642,8 +43602,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
         });
         args.splice(lastC, 0, c);
       }
-      exports3.log = console.debug || console.log || function() {
-      };
+      exports3.log = console.debug || console.log || function() {};
       function save(namespaces) {
         try {
           if (namespaces) {
@@ -43651,15 +43610,13 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
           } else {
             exports3.storage.removeItem("debug");
           }
-        } catch (error2) {
-        }
+        } catch (error2) {}
       }
       function load2() {
         var r;
         try {
           r = exports3.storage.getItem("debug");
-        } catch (error2) {
-        }
+        } catch (error2) {}
         if (!r && typeof browser$1$1 !== "undefined" && "env" in browser$1$1) {
           r = browser$1$1.env.DEBUG;
         }
@@ -43668,8 +43625,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
       function localstorage() {
         try {
           return localStorage;
-        } catch (error2) {
-        }
+        } catch (error2) {}
       }
       module2.exports = common(exports3);
       var formatters = module2.exports.formatters;
@@ -47091,13 +47047,11 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
       e = s & (1 << -nBits) - 1;
       s >>= -nBits;
       nBits += eLen;
-      for (;nBits > 0; e = e * 256 + buffer[offset + i], i += d, nBits -= 8) {
-      }
+      for (;nBits > 0; e = e * 256 + buffer[offset + i], i += d, nBits -= 8) {}
       m2 = e & (1 << -nBits) - 1;
       e >>= -nBits;
       nBits += mLen;
-      for (;nBits > 0; m2 = m2 * 256 + buffer[offset + i], i += d, nBits -= 8) {
-      }
+      for (;nBits > 0; m2 = m2 * 256 + buffer[offset + i], i += d, nBits -= 8) {}
       if (e === 0) {
         e = 1 - eBias;
       } else if (e === eMax) {
@@ -47147,12 +47101,10 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
           e = 0;
         }
       }
-      for (;mLen >= 8; buffer[offset + i] = m2 & 255, i += d, m2 /= 256, mLen -= 8) {
-      }
+      for (;mLen >= 8; buffer[offset + i] = m2 & 255, i += d, m2 /= 256, mLen -= 8) {}
       e = e << mLen | m2;
       eLen += mLen;
-      for (;eLen > 0; buffer[offset + i] = e & 255, i += d, e /= 256, eLen -= 8) {
-      }
+      for (;eLen > 0; buffer[offset + i] = e & 255, i += d, e /= 256, eLen -= 8) {}
       buffer[offset + i - d] |= s * 128;
     }
     var toString$1 = {}.toString;
@@ -53976,8 +53928,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
     function addDeprecatedGenerators(PrinterClass) {
       {
         var deprecatedBabel7Generators = {
-          Noop: function Noop() {
-          },
+          Noop: function Noop() {},
           TSExpressionWithTypeArguments: function TSExpressionWithTypeArguments(node2) {
             this.print(node2.expression);
             this.print(node2.typeParameters);
@@ -54038,8 +53989,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
       _proto.enterForStatementInit = function enterForStatementInit() {
         var _this = this;
         if (this.inForStatementInit)
-          return function() {
-          };
+          return function() {};
         this.inForStatementInit = true;
         return function() {
           _this.inForStatementInit = false;
@@ -54050,8 +54000,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
         var oldInForStatementInit = this.inForStatementInit;
         var oldNoLineTerminatorAfterNode = this._noLineTerminatorAfterNode;
         if (oldInForStatementInit === false && oldNoLineTerminatorAfterNode === null) {
-          return function() {
-          };
+          return function() {};
         }
         this.inForStatementInit = false;
         this._noLineTerminatorAfterNode = null;
@@ -54729,8 +54678,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
         var nodeEndLine = hasLoc ? nodeLoc.end.line : 0;
         var lastLine = 0;
         var leadingCommentNewline = 0;
-        var maybeNewline = this._noLineTerminator ? function() {
-        } : this.newline.bind(this);
+        var maybeNewline = this._noLineTerminator ? function() {} : this.newline.bind(this);
         for (var i = 0;i < len; i++) {
           var comment = comments[i];
           var shouldPrint = this._shouldPrintComment(comment, nextToken);
@@ -58615,13 +58563,10 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
       return contexts;
     }
     var Hub = function() {
-      function Hub2() {
-      }
+      function Hub2() {}
       var _proto = Hub2.prototype;
-      _proto.getCode = function getCode() {
-      };
-      _proto.getScope = function getScope() {
-      };
+      _proto.getCode = function getCode() {};
+      _proto.getScope = function getScope() {};
       _proto.addHelper = function addHelper() {
         throw new Error("Helpers are not supported by the default hub.");
       };
@@ -58710,8 +58655,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
             console.log.apply(console, args);
           };
         } else {
-          debug2 = function debug() {
-          };
+          debug2 = function debug() {};
         }
         exports3.SEMVER_SPEC_VERSION = "2.0.0";
         var MAX_LENGTH = 256;
@@ -59865,8 +59809,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
     } else {
       inherits$1 = function inherits(ctor, superCtor) {
         ctor.super_ = superCtor;
-        var TempCtor = function() {
-        };
+        var TempCtor = function() {};
         TempCtor.prototype = superCtor.prototype;
         ctor.prototype = new TempCtor;
         ctor.prototype.constructor = ctor;
@@ -60212,8 +60155,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
         return _functionsHaveNames;
       }
       return _functionsHaveNames = function() {
-        return function foo() {
-        }.name === "foo";
+        return function foo() {}.name === "foo";
       }();
     }
     function pToString(obj) {
@@ -60445,8 +60387,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
         if (actual instanceof expected) {
           return true;
         }
-      } catch (e) {
-      }
+      } catch (e) {}
       if (Error.isPrototypeOf(expected)) {
         return false;
       }
@@ -68126,8 +68067,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
     BrowserslistError$2.prototype = Error.prototype;
     var error = BrowserslistError$2;
     var BrowserslistError$1 = error;
-    function noop() {
-    }
+    function noop() {}
     var browser = {
       loadQueries: function loadQueries() {
         throw new BrowserslistError$1("Sharable configs are not supported in client-side build of Browserslist");
@@ -69818,8 +69758,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
       }
       try {
         requireIterator()(Yallist);
-      } catch (er) {
-      }
+      } catch (er) {}
       return yallist;
     }
     var lruCacheBABEL_8_BREAKINGFalse;
@@ -71183,8 +71122,7 @@ Expected ` + (val.length + 1) + " quasis but got " + node2.quasis.length);
             var parsedBrowserVersion = semverify(splitVersion);
             all2[target2] = semverMin(version2, parsedBrowserVersion);
           }
-        } catch (_) {
-        }
+        } catch (_) {}
         return all2;
       }, {});
     }
@@ -72111,8 +72049,7 @@ getting parsed as 6.1, which can lead to unexpected behavior.
       });
     }
     function setupPrepareStackTrace() {
-      setupPrepareStackTrace = function setupPrepareStackTrace() {
-      };
+      setupPrepareStackTrace = function setupPrepareStackTrace() {};
       var _Error$prepareStackTr = Error.prepareStackTrace, prepareStackTrace = _Error$prepareStackTr === undefined ? defaultPrepareStackTrace : _Error$prepareStackTr;
       var MIN_STACK_TRACE_LIMIT = 50;
       Error.stackTraceLimit && (Error.stackTraceLimit = Math.max(Error.stackTraceLimit, MIN_STACK_TRACE_LIMIT));
@@ -72462,8 +72399,7 @@ getting parsed as 6.1, which can lead to unexpected behavior.
         var _this = this;
         var { callerName, filepath } = _ref4;
         if (!enabled)
-          return function() {
-          };
+          return function() {};
         return function(content, index2, envName) {
           _this._stack.push({
             type: type2,
@@ -72569,8 +72505,7 @@ getting parsed as 6.1, which can lead to unexpected behavior.
         return loadPresetOverridesEnvDescriptors(preset)(index2)(envName);
       },
       createLogger: function createLogger() {
-        return function() {
-        };
+        return function() {};
       }
     });
     var loadPresetDescriptors = makeWeakCacheSync(function(preset) {
@@ -72861,8 +72796,7 @@ getting parsed as 6.1, which can lead to unexpected behavior.
     });
     function buildFileLogger(filepath, context, baseLogger) {
       if (!baseLogger) {
-        return function() {
-        };
+        return function() {};
       }
       return baseLogger.configure(context.showConfig, ChainFormatter.Config, {
         filepath
@@ -72875,8 +72809,7 @@ getting parsed as 6.1, which can lead to unexpected behavior.
     function buildProgrammaticLogger(_, context, baseLogger) {
       var _context$caller;
       if (!baseLogger) {
-        return function() {
-        };
+        return function() {};
       }
       return baseLogger.configure(context.showConfig, ChainFormatter.Programmatic, {
         callerName: (_context$caller = context.caller) == null ? undefined : _context$caller.name
@@ -74741,7 +74674,7 @@ Add ` + syntaxPluginInfo + " to the 'plugins' section of your Babel config " + "
 
 If you already added the plugin for this syntax to your config, it's possible that your config isn't being loaded.
 You can re-run Babel with the BABEL_SHOW_CONFIG_FOR environment variable to show the loaded configuration:
-\tnpx cross-env BABEL_SHOW_CONFIG_FOR=` + msgFilename + ` <your build command>
+	npx cross-env BABEL_SHOW_CONFIG_FOR=` + msgFilename + ` <your build command>
 See https://babeljs.io/docs/configuration#print-effective-configs for more info.
 `;
       return helpMessage;
@@ -75639,8 +75572,7 @@ Consider renaming the file to '.mjs', or setting sourceType:module ` + "or sourc
     var DEFAULT_EXTENSIONS = Object.freeze([".js", ".jsx", ".es6", ".es", ".mjs", ".cjs"]);
     {
       exports2.OptionManager = function() {
-        function OptionManager() {
-        }
+        function OptionManager() {}
         var _proto = OptionManager.prototype;
         _proto.init = function init(opts) {
           return loadOptionsSync(opts);
@@ -76466,8 +76398,7 @@ Consider renaming the file to '.mjs', or setting sourceType:module ` + "or sourc
       return false;
     }
     var handle = {
-      memoise: function memoise() {
-      },
+      memoise: function memoise() {},
       handle: function handle(member, noDocumentAll) {
         var { node: node2, parent: parent2, parentPath, scope: scope2 } = member;
         if (member.isOptionalMemberExpression()) {
@@ -79494,7 +79425,7 @@ The "loose" option must be the `) + "same for @babel/plugin-transform-class-prop
       }
       return `If you already set the same 'loose' mode for these plugins in your config, it's possible that they are enabled multiple times with different options.
 You can re-run Babel with the BABEL_SHOW_CONFIG_FOR environment variable to show the loaded configuration:
-\tnpx cross-env BABEL_SHOW_CONFIG_FOR=` + filename + ` <your build command>
+	npx cross-env BABEL_SHOW_CONFIG_FOR=` + filename + ` <your build command>
 See https://babeljs.io/docs/configuration#print-effective-configs for more info.`;
     }
     function hasFeature$1(file2, feature) {
@@ -79548,7 +79479,7 @@ See https://babeljs.io/docs/configuration#print-effective-configs for more info.
       if (decoratorPath && !hasFeature$1(file2, FEATURES$1.decorators)) {
         throw path2.buildCodeFrameError("Decorators are not enabled." + `
 If you are using ` + '["@babel/plugin-proposal-decorators", { "version": "legacy" }], ' + 'make sure it comes *before* "@babel/plugin-transform-class-properties" ' + `and enable loose mode, like so:
-` + `\t["@babel/plugin-proposal-decorators", { "version": "legacy" }]
+` + `	["@babel/plugin-proposal-decorators", { "version": "legacy" }]
 ` + '\t["@babel/plugin-transform-class-properties", { "loose": true }]');
       }
       if (privateMethodPath && !hasFeature$1(file2, FEATURES$1.privateMethods)) {
@@ -79611,9 +79542,9 @@ If you are using ` + '["@babel/plugin-proposal-decorators", { "version": "legacy
         }
         if (explicit.length !== 0) {
           console.warn("[" + name2 + ']: You are using the "loose: true" option and you are' + (" explicitly setting a value for the " + explicit.join(" and ")) + (" assumption" + (explicit.length > 1 ? "s" : "") + '. The "loose" option') + " can cause incompatibilities with the other class features" + " plugins, so it's recommended that you replace it with the" + ` following top-level option:
-` + `\t"assumptions": {
-` + `\t\t"setPublicClassFields": true,
-` + `\t\t"privateFieldsAsSymbols": true
+` + `	"assumptions": {
+` + `		"setPublicClassFields": true,
+` + `		"privateFieldsAsSymbols": true
 ` + "\t}");
         }
       }
@@ -89830,12 +89761,10 @@ If you are using ` + '["@babel/plugin-proposal-decorators", { "version": "legacy
         var _property = "General_Category";
         var category = unicodeMatchPropertyValue(_property, value2);
         return getUnicodePropertyValueSet(_property, category);
-      } catch (exception) {
-      }
+      } catch (exception) {}
       try {
         return getUnicodePropertyValueSet("Property_of_Strings", value2);
-      } catch (exception) {
-      }
+      } catch (exception) {}
       var property2 = unicodeMatchProperty(value2);
       return getUnicodePropertyValueSet(property2);
     };
@@ -90683,8 +90612,7 @@ If you are using ` + '["@babel/plugin-proposal-decorators", { "version": "legacy
         dotAllFlag: feat("dotAllFlag"),
         unicodePropertyEscapes: feat("unicodePropertyEscape"),
         namedGroups: feat("namedCaptureGroups") || featDuplicateNamedGroups(),
-        onNamedGroup: function onNamedGroup() {
-        },
+        onNamedGroup: function onNamedGroup() {},
         modifiers: feat("modifiers")
       };
     }
@@ -90727,8 +90655,7 @@ If you are using ` + '["@babel/plugin-proposal-decorators", { "version": "legacy
     }
     var versionKey = "@babel/plugin-regexp-features/version";
     function createRegExpFeaturePlugin(_ref4) {
-      var { name: name2, feature, options: _ref$options } = _ref4, options = _ref$options === undefined ? {} : _ref$options, _ref$manipulateOption = _ref4.manipulateOptions, manipulateOptions = _ref$manipulateOption === undefined ? function() {
-      } : _ref$manipulateOption;
+      var { name: name2, feature, options: _ref$options } = _ref4, options = _ref$options === undefined ? {} : _ref$options, _ref$manipulateOption = _ref4.manipulateOptions, manipulateOptions = _ref$manipulateOption === undefined ? function() {} : _ref$manipulateOption;
       return {
         name: name2,
         manipulateOptions,
@@ -93206,8 +93133,7 @@ bundler handle dynamic imports.
       }
       try {
         return file2.addHelper("callSuper");
-      } catch (_unused) {
-      }
+      } catch (_unused) {}
       var id = file2.scope.generateUidIdentifier("callSuper");
       helperIDs.set(file2, id);
       var fn = helper$1({
@@ -97708,8 +97634,7 @@ bundler handle dynamic imports.
       }
       return t2.variableDeclaration("var", declarations);
     }
-    var Entry = _createClass(function Entry() {
-    });
+    var Entry = _createClass(function Entry() {});
     var FunctionEntry = function(_Entry) {
       function FunctionEntry2(returnLoc) {
         var _this;
@@ -101212,8 +101137,7 @@ bundler handle dynamic imports.
             console.log.apply(console, args);
           };
         } else {
-          debug2 = function debug() {
-          };
+          debug2 = function debug() {};
         }
         exports3.SEMVER_SPEC_VERSION = "2.0.0";
         var MAX_LENGTH = 256;
@@ -103067,10 +102991,8 @@ bundler handle dynamic imports.
       function has2(basedir, name2) {
         return true;
       }
-      function logMissing2(missingDeps) {
-      }
-      function laterLogMissing2(missingDeps) {
-      }
+      function logMissing2(missingDeps) {}
+      function laterLogMissing2(missingDeps) {}
       return dependencies$1;
     }
     var metaResolver$1 = {};
@@ -138257,8 +138179,7 @@ Using targets: ` + (0, _debugUtils.stringifyTargetsMultiline)(targets));
             console.log.apply(console, args);
           };
         } else {
-          debug2 = function debug() {
-          };
+          debug2 = function debug() {};
         }
         exports3.SEMVER_SPEC_VERSION = "2.0.0";
         var MAX_LENGTH = 256;
@@ -140110,10 +140031,8 @@ Using targets: ` + (0, _debugUtils.stringifyTargetsMultiline)(targets));
       function has2(basedir, name2) {
         return true;
       }
-      function logMissing2(missingDeps) {
-      }
-      function laterLogMissing2(missingDeps) {
-      }
+      function logMissing2(missingDeps) {}
+      function laterLogMissing2(missingDeps) {}
       return dependencies;
     }
     var metaResolver = {};
@@ -141617,10 +141536,8 @@ Using targets: ` + (0, _debugUtils.stringifyTargetsMultiline)(targets));
     function has(basedir, name2) {
       return true;
     }
-    function logMissing(missingDeps) {
-    }
-    function laterLogMissing(missingDeps) {
-    }
+    function logMissing(missingDeps) {}
+    function laterLogMissing(missingDeps) {}
     var PossibleGlobalObjects = new Set(["global", "globalThis", "self", "window"]);
     function createMetaResolver(polyfills2) {
       var staticP = polyfills2["static"], instanceP = polyfills2.instance, globalP = polyfills2.global;
@@ -143895,8 +143812,7 @@ var require_lodash = __commonJS((exports, module) => {
           return types2;
         }
         return freeProcess && freeProcess.binding && freeProcess.binding("util");
-      } catch (e) {
-      }
+      } catch (e) {}
     }();
     var nodeIsArrayBuffer = nodeUtil && nodeUtil.isArrayBuffer, nodeIsDate = nodeUtil && nodeUtil.isDate, nodeIsMap = nodeUtil && nodeUtil.isMap, nodeIsRegExp = nodeUtil && nodeUtil.isRegExp, nodeIsSet = nodeUtil && nodeUtil.isSet, nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
     function apply(func, thisArg, args) {
@@ -144122,14 +144038,12 @@ var require_lodash = __commonJS((exports, module) => {
     }
     function charsStartIndex(strSymbols, chrSymbols) {
       var index = -1, length = strSymbols.length;
-      while (++index < length && baseIndexOf(chrSymbols, strSymbols[index], 0) > -1) {
-      }
+      while (++index < length && baseIndexOf(chrSymbols, strSymbols[index], 0) > -1) {}
       return index;
     }
     function charsEndIndex(strSymbols, chrSymbols) {
       var index = strSymbols.length;
-      while (index-- && baseIndexOf(chrSymbols, strSymbols[index], 0) > -1) {
-      }
+      while (index-- && baseIndexOf(chrSymbols, strSymbols[index], 0) > -1) {}
       return index;
     }
     function countHolders(array, placeholder) {
@@ -144225,8 +144139,7 @@ var require_lodash = __commonJS((exports, module) => {
     }
     function trimmedEndIndex(string) {
       var index = string.length;
-      while (index-- && reWhitespace.test(string.charAt(index))) {
-      }
+      while (index-- && reWhitespace.test(string.charAt(index))) {}
       return index;
     }
     var unescapeHtmlChar = basePropertyOf(htmlUnescapes);
@@ -144265,8 +144178,7 @@ var require_lodash = __commonJS((exports, module) => {
           var func = getNative(Object2, "defineProperty");
           func({}, "", {});
           return func;
-        } catch (e) {
-        }
+        } catch (e) {}
       }();
       var ctxClearTimeout = context2.clearTimeout !== root.clearTimeout && context2.clearTimeout, ctxNow = Date2 && Date2.now !== root.Date.now && Date2.now, ctxSetTimeout = context2.setTimeout !== root.setTimeout && context2.setTimeout;
       var { ceil: nativeCeil, floor: nativeFloor } = Math2, nativeGetSymbols = Object2.getOwnPropertySymbols, nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined2, nativeIsFinite = context2.isFinite, nativeJoin = arrayProto.join, nativeKeys = overArg(Object2.keys, Object2), nativeMax = Math2.max, nativeMin = Math2.min, nativeNow = Date2.now, nativeParseInt = context2.parseInt, nativeRandom = Math2.random, nativeReverse = arrayProto.reverse;
@@ -144287,8 +144199,7 @@ var require_lodash = __commonJS((exports, module) => {
         return new LodashWrapper(value2);
       }
       var baseCreate = function() {
-        function object() {
-        }
+        function object() {}
         return function(proto) {
           if (!isObject2(proto)) {
             return {};
@@ -144302,8 +144213,7 @@ var require_lodash = __commonJS((exports, module) => {
           return result2;
         };
       }();
-      function baseLodash() {
-      }
+      function baseLodash() {}
       function LodashWrapper(value2, chainAll) {
         this.__wrapped__ = value2;
         this.__actions__ = [];
@@ -145453,8 +145363,7 @@ var require_lodash = __commonJS((exports, module) => {
       }
       function baseWhile(array, predicate, isDrop, fromRight) {
         var length = array.length, index = fromRight ? length : -1;
-        while ((fromRight ? index-- : ++index < length) && predicate(array[index], index, array)) {
-        }
+        while ((fromRight ? index-- : ++index < length) && predicate(array[index], index, array)) {}
         return isDrop ? baseSlice(array, fromRight ? 0 : index, fromRight ? index + 1 : length) : baseSlice(array, fromRight ? index + 1 : 0, fromRight ? length : index);
       }
       function baseWrapperValue(value2, actions2) {
@@ -146235,8 +146144,7 @@ var require_lodash = __commonJS((exports, module) => {
         try {
           value2[symToStringTag] = undefined2;
           var unmasked = true;
-        } catch (e) {
-        }
+        } catch (e) {}
         var result2 = nativeObjectToString.call(value2);
         if (unmasked) {
           if (isOwn) {
@@ -146594,12 +146502,10 @@ var require_lodash = __commonJS((exports, module) => {
         if (func != null) {
           try {
             return funcToString.call(func);
-          } catch (e) {
-          }
+          } catch (e) {}
           try {
             return func + "";
-          } catch (e) {
-          }
+          } catch (e) {}
         }
         return "";
       }
@@ -148396,8 +148302,7 @@ __p += '`;
         }
         return this;
       }
-      function noop() {
-      }
+      function noop() {}
       function nthArg(n) {
         n = toInteger(n);
         return baseRest(function(args) {
@@ -149728,8 +149633,7 @@ var CallOptions = class {
 var CallOptions_default = CallOptions;
 var methodsToTreatAsNative = /* @__PURE__ */ new Set(["apply", "call", "bind"]);
 var createRemoteProxy = (callback, log, path = []) => {
-  return new Proxy(path.length ? () => {
-  } : /* @__PURE__ */ Object.create(null), {
+  return new Proxy(path.length ? () => {} : /* @__PURE__ */ Object.create(null), {
     get(target, prop) {
       if (prop === "then") {
         return;
@@ -150081,8 +149985,7 @@ var connect = ({
       };
       try {
         messenger.sendMessage(destroyMessage);
-      } catch (_) {
-      }
+      } catch (_) {}
     }
     for (const connectionDestroyedHandler of connectionDestroyedHandlers) {
       connectionDestroyedHandler();
@@ -150643,8 +150546,7 @@ var import_parse_css_color = __toESM(require_index_umd(), 1);
 var util;
 (function(util2) {
   util2.assertEqual = (val) => val;
-  function assertIs(_arg) {
-  }
+  function assertIs(_arg) {}
   util2.assertIs = assertIs;
   function assertNever2(_x) {
     throw new Error;
@@ -154667,7 +154569,7 @@ var { parse } = import_standalone.packages.parser;
 var { generate } = import_standalone.packages.generator;
 var traverse = import_standalone.packages.traverse.default;
 var types = import_standalone.packages.types;
-// ../../../../../../../bun-vfs$$/node_modules/path/index.js
+// node:path
 var L = Object.create;
 var h = Object.defineProperty;
 var D = Object.getOwnPropertyDescriptor;
@@ -156931,12 +156833,10 @@ function imageCompression(e2, t3) {
     function $If_4() {
       try {
         a2.name = e2.name, a2.lastModified = e2.lastModified;
-      } catch (e3) {
-      }
+      } catch (e3) {}
       try {
         o2.preserveExif && e2.type === "image/jpeg" && (!o2.fileType || o2.fileType && o2.fileType === e2.type) && (a2 = copyExifWithoutOrientation(e2, a2));
-      } catch (e3) {
-      }
+      } catch (e3) {}
       return r2(a2);
     }
   });
@@ -160081,8 +159981,7 @@ class TokenStream {
     this.tokenStart = this.firstCharOffset;
     this.tokenEnd = this.firstCharOffset;
   }
-  setSource(source = "", tokenize = () => {
-  }) {
+  setSource(source = "", tokenize = () => {}) {
     source = String(source || "");
     const sourceLength = source.length;
     const offsetAndType = adoptBuffer(this.offsetAndType, source.length + 1);
@@ -160970,8 +160869,7 @@ function readSequence(recognizer) {
 }
 
 // ../../../node_modules/css-tree/lib/parser/create.js
-var NOOP = () => {
-};
+var NOOP = () => {};
 var EXCLAMATIONMARK = 33;
 var NUMBERSIGN = 35;
 var SEMICOLON = 59;
@@ -161813,8 +161711,7 @@ function createConvertor(walk) {
 
 // ../../../node_modules/css-tree/lib/walker/create.js
 var { hasOwnProperty: hasOwnProperty2 } = Object.prototype;
-var noop = function() {
-};
+var noop = function() {};
 function ensureFunction(value2) {
   return typeof value2 === "function" ? value2 : noop;
 }
@@ -163493,8 +163390,7 @@ function parse4(source) {
   return result;
 }
 // ../../../node_modules/css-tree/lib/definition-syntax/walk.js
-var noop3 = function() {
-};
+var noop3 = function() {};
 function ensureFunction2(value2) {
   return typeof value2 === "function" ? value2 : noop3;
 }
@@ -169540,8 +169436,7 @@ var {
 // script/api/style/css-manager.ts
 class CSSManager {
   static instance;
-  constructor() {
-  }
+  constructor() {}
   injectDefaultStyles() {
     try {
       const styleElement = document.createElement("style");
@@ -170390,8 +170285,7 @@ function listenForEvents() {
   listenForDomMutation();
 }
 function listenForWindowEvents() {
-  window.addEventListener("resize", () => {
-  });
+  window.addEventListener("resize", () => {});
 }
 
 // script/api/ready.ts
