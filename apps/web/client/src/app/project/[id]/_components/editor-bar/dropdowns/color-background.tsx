@@ -3,17 +3,14 @@
 import { useEditorEngine } from '@/components/store/editor';
 import { Icons } from '@onlook/ui/icons';
 import { Popover, PopoverContent, PopoverTrigger } from '@onlook/ui/popover';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@onlook/ui/tooltip';
 import { useMemo } from 'react';
 import { ColorPickerContent } from '../inputs/color-picker';
 import { useColorUpdate } from '../hooks/use-color-update';
 import { useDropdownControl } from '../hooks/use-dropdown-manager';
 import { observer } from 'mobx-react-lite';
 
-interface ColorBackgroundProps {
-    className?: string;
-}
-
-export const ColorBackground = observer(({ className }: ColorBackgroundProps) => {
+export const ColorBackground = observer(() => {
     const editorEngine = useEditorEngine();
     const initialColor = editorEngine.style.selectedStyle?.styles.computed.backgroundColor;
 
@@ -50,11 +47,20 @@ export const ColorBackground = observer(({ className }: ColorBackgroundProps) =>
     ), [colorHex]);
 
     return (
-        <div className={`flex flex-col gap-2 ${className ?? ''}`}>
+        <div className="flex flex-col gap-2">
             <Popover open={isOpen} onOpenChange={onOpenChange}>
-                <PopoverTrigger asChild>
-                    {ColorTrigger}
-                </PopoverTrigger>
+                <Tooltip>
+                    <div>
+                        <TooltipTrigger asChild>
+                            <PopoverTrigger asChild>
+                                {ColorTrigger}
+                            </PopoverTrigger>
+                        </TooltipTrigger>
+                        <TooltipContent side="bottom" className="mt-1" hideArrow>
+                            Background Color
+                        </TooltipContent>
+                    </div>
+                </Tooltip>
                 <PopoverContent
                     className="w-[220px] overflow-hidden rounded-lg p-0 shadow-xl backdrop-blur-lg"
                     side="bottom"
